@@ -9,3 +9,7 @@ nbproject/private/
 # Configurações do sistema operacional
 .DS_Store
 Thumbs.db
+
+#arquivos do intellij
+.idea/
+pom.xml
