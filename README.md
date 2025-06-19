@@ -1,15 +1,43 @@
 
-<h1>
-    <a href="https://www.dio.me/">
-     <img align="center" width="40px" src="https://hermes.digitalinnovation.one/assets/diome/logo-minimized.png"></a>
-    <span> Java-Cloud-Native-DIO.me</span>
-</h1>
-Este é um repositório do bootcamp Java Cloud Native da DIO.me em parceria com o Bradesco. Esta iniciativa busca capacitar desenvolvedores para criar sistemas escaláveis e de alta disponibilidade utilizando Java e tecnologias de computação em nuvem. Durante o programa, os participantes aprendem a desenvolver microsserviços, integrar com bancos de dados e realizar deploys em nuvem com ferramentas modernas. 
-Aqui hospedarei todos os códigos realizados em aula assim como os projetos desenvolvidos durante o programa.
+# <img align="center" width="40px" src="https://hermes.digitalinnovation.one/assets/diome/logo-minimized.png"> TQI Fullstack Developer (Java)
 
-### **Principais Tecnologias e Ferramentas**
-- **Java**: Linguagem de programação orientada a objetos.
-- **Spring Boot**: Framework para criação de aplicações Java.
-- **Red Hat OpenShift**: Plataforma para deploy e gerenciamento de aplicações em nuvem.
-- **Microsoft Azure**: Serviços de computação em nuvem.
-- **GitHub Actions**: Automação de pipelines de CI/CD.
+Este repositório contém os códigos desenvolvidos durante o **Bootcamp TQI Fullstack Developer**, promovido pela [DIO.me](https://www.dio.me/) em parceria com a **TQI**.
+
+O bootcamp tem como objetivo capacitar desenvolvedores para atuar em projetos fullstack utilizando as tecnologias mais requisitadas pelo mercado, com foco em **Java**, **Spring Boot** e **metodologias modernas de engenharia de software**.
+
+> Este repositório é dedicado exclusivamente ao **Módulo VI - Java**, onde estão os códigos práticos e projetos desenvolvidos ao longo das aulas.
+
+---
+
+## 📘 Conteúdos do Módulo VI - Java
+
+- Variáveis, tipos de dados e operadores matemáticos em Java
+- Entendendo métodos Java
+- Lógica condicional e controle de fluxos
+- Estruturas de repetição e arrays
+- Trabalhando com collections
+- Estrutura de dados em Java
+- Debugging no IntelliJ IDEA
+- Tratamento de exceções
+- Programação orientada a objetos (POO)
+- Acesso a banco de dados com JDBC e JPA
+- Persistência com JPA e Hibernate
+- Testes unitários com JUnit
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+- Java 11+
+- IntelliJ IDEA
+- Maven
+- JUnit
+- JDBC / JPA / Hibernate
+- Git & GitHub
+
+---
+
+## 📎 Links úteis
+- [Bootcamp na DIO.me](https://www.dio.me/)
+- [TQI - Site oficial](https://www.tqi.com.br/)
+
+
