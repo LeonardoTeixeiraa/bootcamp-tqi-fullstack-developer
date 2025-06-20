@@ -1,4 +1,4 @@
-package clockConvert;
+package conditionalControlFlow.clockConvert;
 
 public sealed abstract class Clock permits BRLClock, USClock{
     protected int hour;

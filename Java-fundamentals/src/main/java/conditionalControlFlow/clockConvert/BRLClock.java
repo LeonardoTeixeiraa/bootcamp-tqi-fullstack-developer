@@ -1,4 +1,4 @@
-package clockConvert;
+package conditionalControlFlow.clockConvert;
 
 public non-sealed class BRLClock extends Clock{
     @Override

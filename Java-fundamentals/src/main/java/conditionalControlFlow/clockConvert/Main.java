@@ -1,4 +1,4 @@
-package clockConvert;
+package conditionalControlFlow.clockConvert;
 
 public class Main {
     public static void main(String[] args) {

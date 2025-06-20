@@ -1,4 +1,4 @@
-package DesafioControleFluxo;
+package conditionalControlFlow.DesafioControleFluxo;
 
 import java.util.Locale;
 import java.util.Scanner;

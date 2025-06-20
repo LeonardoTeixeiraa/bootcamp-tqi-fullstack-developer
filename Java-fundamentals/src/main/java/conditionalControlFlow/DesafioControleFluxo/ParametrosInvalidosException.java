@@ -1,4 +1,4 @@
-package DesafioControleFluxo;
+package conditionalControlFlow.DesafioControleFluxo;
 
 public class ParametrosInvalidosException extends Exception{
     public ParametrosInvalidosException(String mensagem) {

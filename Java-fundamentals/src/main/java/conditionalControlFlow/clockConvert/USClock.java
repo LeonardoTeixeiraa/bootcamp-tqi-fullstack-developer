@@ -1,4 +1,4 @@
-package clockConvert;
+package conditionalControlFlow.clockConvert;
 
 public non-sealed class USClock extends Clock{
     public String getPeriodIndicator() {
