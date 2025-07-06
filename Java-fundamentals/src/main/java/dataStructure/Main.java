@@ -1,8 +1,10 @@
 package dataStructure;
 
+import dataStructure.carro.Carro;
+
 import java.util.*;
 
-public class Generics {
+public class Main {
     public static void main(String[] args) {
 //      Exemplo de declaração de uma lista com elementos
         List<String> fruitList = List.of("apple", "banana", "cherry");
@@ -50,7 +52,32 @@ public class Generics {
 //        Remove o elemento porém lança uma exceção caso haja, ex: Lista vazia
         System.out.println(queue.remove());
         System.out.println(queue);
+        System.out.println(" ");
+//        Criação de um objeto imutável por meio de records ajudando na eliminação de código Boilerplate
+        Carro sandero =  new Carro("Sandero", "Preto", 2020, "ABC-1234");
+//        Métodos getter, retornam dados
+        System.out.println(sandero.ano());
+        System.out.println(sandero.cor());
+        System.out.println(" ");
+//        STREAM API:
+//       Criação de uma lista de nomes
+        List<String> nameList = new ArrayList<>();
+        nameList.add("Rodrigo Goes");
+        nameList.add("Rodrigo Santos");
+        nameList.add("Fernanda Nogueira");
+        nameList.add("Fernanda Moreira");
+        nameList.add("Fred Rodrigues");
+        nameList.add("Fabrício Santana");
+        nameList.add("Eduarda Aguiar");
 
+//        Exemplo de filtro de dados com o filter
+         List<String> fernandaList= nameList
+                 .stream()
+                 .filter(nome -> nome.startsWith("Fernanda"))
+//                 Exemplo utilizando funçoes lambdas
+                 .map(String::toUpperCase)
+                 .toList();
+        System.out.println("Lista de nomes (Fernanda): " + fernandaList);
 
 
     }
