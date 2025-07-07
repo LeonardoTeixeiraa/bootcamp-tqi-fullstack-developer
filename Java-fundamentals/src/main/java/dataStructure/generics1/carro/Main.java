@@ -1,6 +1,4 @@
-package dataStructure;
-
-import dataStructure.carro.Carro;
+package dataStructure.generics1.carro;
 
 import java.util.*;
 
