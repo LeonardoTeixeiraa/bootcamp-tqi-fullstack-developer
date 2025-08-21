@@ -1,6 +1,8 @@
 # Arquivos de build e temporários
 target/
 build/
+build.xml
+manifest.mf
 *.class
 
 # Arquivos do NetBeans
