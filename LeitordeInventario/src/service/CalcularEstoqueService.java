@@ -32,7 +32,7 @@ public class CalcularEstoqueService {
     public double calculaPrecoMedio(List<Produto> produtos) {
         //Inicializa as variáveis
         double mediaProdutos = 0.0;
-        double somaPrecos = 0.0;
+        double somaPrecos = calculaTotalEstoque(produtos);
         int somaQuantProd = 0;
 
             //Verifica se a lista de produtos esta vazia e retorna um valor double padrão
@@ -43,7 +43,6 @@ public class CalcularEstoqueService {
         
         //Percorre todos os produtos realizar a soma de todos os precos e quantidades
         for (Produto p : produtos) {
-            somaPrecos += p.getPreco();
             somaQuantProd += p.getQuantidadeEmEstoque();
         }
         //Calcula o preço medio
