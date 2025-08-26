@@ -20,7 +20,7 @@ public class LeitorDeEstoque {
 
     public static void main(String[] args) {
         // ATENÇÃO: Altere este caminho para o local onde você salvou o arquivo CSV!
-        String caminhoDoArquivo = "/home/leonardo-teixeira/Documents/dados/produtos.csv";
+        String caminhoDoArquivo = "src/data/produtos.csv";
         System.out.println("--- Iniciando Leitura do Inventário ---");
 
         //Cria uma lista dinâmica de produtos
