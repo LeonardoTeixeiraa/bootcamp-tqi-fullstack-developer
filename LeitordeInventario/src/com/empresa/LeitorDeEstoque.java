@@ -51,7 +51,6 @@ public class LeitorDeEstoque {
             double valorTotalInventario = calcularEstoqueService.calculaTotalEstoque(produtos);
             System.out.printf("Valor total do inventario: %.2f R$", valorTotalInventario);
 
-
             System.out.println(" ");
             System.out.println("---------------------------");
             double precoMedioProdutos = calcularEstoqueService.calculaPrecoMedio(produtos);
@@ -59,14 +58,14 @@ public class LeitorDeEstoque {
 
             System.out.println(" ");
             System.out.println("---------------------------");
-           Produto produtoMaisCaro = calcularEstoqueService.calculaMaiorPreco(produtos);
-System.out.println("Produto mais caro: \n" + produtoMaisCaro);
+            Produto produtoMaisCaro = calcularEstoqueService.calculaMaiorPreco(produtos);
+            produtoMaisCaro.exibirInformacoes();
 
-System.out.println(" ");
-System.out.println("---------------------------");
+            System.out.println(" ");
+            System.out.println("---------------------------");
 
-Produto produtoMaisbarato = calcularEstoqueService.calculaMenorPreco(produtos);
-System.out.println("Produto mais barato: \n" + produtoMaisbarato);
+            Produto produtoMaisBarato = calcularEstoqueService.calculaMenorPreco(produtos);
+            produtoMaisBarato.exibirInformacoes();
         } catch (IOException e) {
             System.out.println("ERRO: Não foi possível ler o arquivo. Verifique o caminho");
             e.printStackTrace(); // Imprime o rastreamento do erro para depuração
