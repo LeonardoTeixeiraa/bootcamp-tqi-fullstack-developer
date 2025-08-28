@@ -66,6 +66,20 @@ public class LeitorDeEstoque {
 
             Produto produtoMaisBarato = calcularEstoqueService.calculaMenorPreco(produtos);
             produtoMaisBarato.exibirInformacoes();
+            
+            System.out.println(" ");
+            System.out.println("--- Relatório de Produtos para Reposição ---");
+            calcularEstoqueService.reposicaoProdutos(produtos);
+            
+            System.out.println(" ");
+            System.out.println("--- Relatório de Itens de Luxo ---");
+            calcularEstoqueService.calculaItemLuxo(produtos);
+            
+             System.out.println(" ");
+             String entrada = "Teclado";
+            System.out.println("---Resultado da Busca por 'teclado---'\n");
+            calcularEstoqueService.findByName(produtos, entrada);
+            
         } catch (IOException e) {
             System.out.println("ERRO: Não foi possível ler o arquivo. Verifique o caminho");
             e.printStackTrace(); // Imprime o rastreamento do erro para depuração

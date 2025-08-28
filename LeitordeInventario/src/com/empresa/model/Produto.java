@@ -66,11 +66,4 @@ public class Produto {
         System.out.printf("Preço: R$ %.2f\n", this.preco); // Usando printf para formatar
         System.out.println("Estoque: " + this.quantidadeEmEstoque + " unidades");
     }
-    
-   @Override
-public String toString() {
-    return "Produto: " + this.nome +
-           String.format("\nPreço: R$ %.2f", this.preco) +
-           "\nEstoque: " + this.quantidadeEmEstoque + " unidades";
-}
 }

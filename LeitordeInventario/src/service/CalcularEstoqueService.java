@@ -17,8 +17,8 @@ public class CalcularEstoqueService {
 
     public double calculaTotalEstoque(List<Produto> produtos) {
         double soma = 0;
-        
-          //Verifica se a lista de produtos esta vazia e retorna um valor double padrão
+
+        //Verifica se a lista de produtos esta vazia e retorna um valor double padrão
         if (produtos == null || produtos.isEmpty()) {
             System.out.println("A lista de produtos esta vazia");
             return 0.0;
@@ -35,12 +35,12 @@ public class CalcularEstoqueService {
         double somaPrecos = calculaTotalEstoque(produtos);
         int somaQuantProd = 0;
 
-            //Verifica se a lista de produtos esta vazia e retorna um valor double padrão
+        //Verifica se a lista de produtos esta vazia e retorna um valor double padrão
         if (produtos == null || produtos.isEmpty()) {
             System.out.println("A lista de produtos esta vazia");
             return 0.0;
         }
-        
+
         //Percorre todos os produtos realizar a soma de todos os precos e quantidades
         for (Produto p : produtos) {
             somaQuantProd += p.getQuantidadeEmEstoque();
@@ -50,7 +50,7 @@ public class CalcularEstoqueService {
 
         return mediaProdutos;
     }
-    
+
 // Funçao que retornar o produto com o menor preço
     public Produto calculaMaiorPreco(List<Produto> produtos) {
         Produto produto;
@@ -90,4 +90,43 @@ public class CalcularEstoqueService {
         }
         return produto;
     }
-}
+
+    //Funcao que calcula se um produto precisa de reposicao de estoque
+    public void reposicaoProdutos(List<Produto> produtos) {
+        //Incializa as variaveis
+        int quantEstoque = 0;
+        //percorre a lista de produtos 
+        for (Produto p : produtos) {
+            quantEstoque = p.getQuantidadeEmEstoque();
+            //Verifica se a quantidade em estoque é menor que 10
+            if (quantEstoque <= 10) {
+                //Imprime o produto que precisa de reposicao
+                System.out.println(p.getNome() + "(Estoque: " + quantEstoque + " unidades )\n");
+            }
+        }
+    }
+
+    //Funcao que calcula itens de luxo
+    public void calculaItemLuxo(List<Produto> produtos) {
+        for (Produto p : produtos) {
+            if (p.getPreco() > 500.0) {
+                System.out.printf("-  %s (Preço: R$ %.2f)\n", p.getNome(), p.getPreco());
+            }
+        }
+    }
+    
+    //Funcao que procura um produto na base de dados e retorna ele
+    public void findByName(List<Produto> produtos, String entradaUsuario){
+        String entrada = entradaUsuario.toLowerCase();
+        String nomeProd = " ";
+        
+        for (Produto p : produtos) {
+            nomeProd = p.getNome().toLowerCase();
+            if(nomeProd.contains(entrada)){
+                p.exibirInformacoes();
+            }
+        }
+    }
+    
+    
+}//end class
