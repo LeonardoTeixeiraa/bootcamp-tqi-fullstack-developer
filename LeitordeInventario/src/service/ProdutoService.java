@@ -7,18 +7,23 @@ package service;
 import com.empresa.model.Produto;
 
 import java.util.List;
-import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 /**
  *
  * @author leonardo-teixeira
  */
-public class CalcularEstoqueService {
+public class ProdutoService {
 
+    /**
+     * Calcula o valor total do estoque somando o preço de todos os produtos.
+     *
+     * @param produtos lista de produtos disponíveis
+     * @return soma dos preços ou 0.0 se a lista estiver vazia/nula
+     */
     public double calculaTotalEstoque(List<Produto> produtos) {
         double soma = 0;
 
-        //Verifica se a lista de produtos esta vazia e retorna um valor double padrão
         if (produtos == null || produtos.isEmpty()) {
             System.out.println("A lista de produtos esta vazia");
             return 0.0;
@@ -29,40 +34,46 @@ public class CalcularEstoqueService {
         return soma;
     }
 
+    /**
+     * Calcula o valor total do estoque somando o preço de todos os produtos.
+     *
+     * @param produtos lista de produtos disponíveis
+     * @return soma dos preços ou 0.0 se a lista estiver vazia/nula
+     */
     public double calculaPrecoMedio(List<Produto> produtos) {
-        //Inicializa as variáveis
         double mediaProdutos = 0.0;
         double somaPrecos = calculaTotalEstoque(produtos);
         int somaQuantProd = 0;
 
-        //Verifica se a lista de produtos esta vazia e retorna um valor double padrão
         if (produtos == null || produtos.isEmpty()) {
             System.out.println("A lista de produtos esta vazia");
             return 0.0;
         }
 
-        //Percorre todos os produtos realizar a soma de todos os precos e quantidades
         for (Produto p : produtos) {
             somaQuantProd += p.getQuantidadeEmEstoque();
         }
-        //Calcula o preço medio
         mediaProdutos = somaPrecos / somaQuantProd;
 
         return mediaProdutos;
     }
 
-// Funçao que retornar o produto com o menor preço
+    /**
+     * Retorna o produto de maior preço.
+     *
+     * @param produtos lista de produtos disponíveis (não pode ser vazia)
+     * @return produto com maior valor de preço
+     * @throws IllegalArgumentException se a lista estiver vazia
+     */
     public Produto calculaMaiorPreco(List<Produto> produtos) {
         Produto produto;
 
-        //Inicializa o objeto com o preço do primeiro produto caso não estiver vazia
         if (!produtos.isEmpty()) {
             produto = produtos.get(0);
         } else {
             throw new IllegalArgumentException("A lista de produtos não pode estar vazia");
         }
 
-        //percorre a lista de produtos atribuindo o maior preço ao objeto produto
         for (Produto p : produtos) {
             if (p.getPreco() > produto.getPreco()) {
                 produto = p;
@@ -71,18 +82,21 @@ public class CalcularEstoqueService {
         return produto;
     }
 
-//    Funçao que retornar o produto com o maior preço
+    /**
+     * Retorna o produto de menor preço.
+     *
+     * @param produtos lista de produtos disponíveis (não pode ser vazia)
+     * @return produto com menor valor de preço
+     * @throws IllegalArgumentException se a lista estiver vazia
+     */
     public Produto calculaMenorPreco(List<Produto> produtos) {
         Produto produto;
-
-        //Inicializa a variável com o preço do primeiro produto caso não estiver vazia
         if (!produtos.isEmpty()) {
             produto = produtos.get(0);
         } else {
             throw new IllegalArgumentException("A lista de produtos não pode estar vazia");
         }
 
-        //Percorre a lista de produtos atribuindo o menor preco entre a variavel menorPreco
         for (Produto p : produtos) {
             if (p.getPreco() < produto.getPreco()) {
                 produto = p;
@@ -91,42 +105,39 @@ public class CalcularEstoqueService {
         return produto;
     }
 
-    //Funcao que calcula se um produto precisa de reposicao de estoque
-    public void reposicaoProdutos(List<Produto> produtos) {
-        //Incializa as variaveis
-        int quantEstoque = 0;
-        //percorre a lista de produtos 
-        for (Produto p : produtos) {
-            quantEstoque = p.getQuantidadeEmEstoque();
-            //Verifica se a quantidade em estoque é menor que 10
-            if (quantEstoque <= 10) {
-                //Imprime o produto que precisa de reposicao
-                System.out.println(p.getNome() + "(Estoque: " + quantEstoque + " unidades )\n");
-            }
-        }
+    /**
+     * Lista os produtos que estão abaixo do nível mínimo de estoque. Nível
+     * mínimo = 10 unidades.
+     */
+    public List<Produto> getProdutosParaReposicao(List<Produto> produtos) {
+        return produtos.stream()
+                .filter(p -> p.getQuantidadeEmEstoque() <= 10)
+                .collect(Collectors.toList());
     }
 
-    //Funcao que calcula itens de luxo
-    public void calculaItemLuxo(List<Produto> produtos) {
-        for (Produto p : produtos) {
-            if (p.getPreco() > 500.0) {
-                System.out.printf("-  %s (Preço: R$ %.2f)\n", p.getNome(), p.getPreco());
-            }
-        }
+    /**
+     * Retorna os produtos considerados de luxo. Critério: preço acima de R$
+     * 500,00.
+     *
+     * @param produtos lista de produtos disponíveis
+     */
+    public List<Produto> getProdutosDeLuxo(List<Produto> produtos) {
+        return produtos.stream()
+                .filter(p -> p.getPreco() > 500.0)
+                .collect(Collectors.toList());
     }
-    
-    //Funcao que procura um produto na base de dados e retorna ele
-    public void findByName(List<Produto> produtos, String entradaUsuario){
+
+    /**
+     * Busca produtos pelo nome, ignorando maiúsculas/minúsculas.
+     *
+     * @param produtos lista de produtos disponíveis
+     * @param entradaUsuario termo de busca digitado pelo usuário
+     */
+    public List<Produto> findByName(List<Produto> produtos, String entradaUsuario) {
         String entrada = entradaUsuario.toLowerCase();
-        String nomeProd = " ";
-        
-        for (Produto p : produtos) {
-            nomeProd = p.getNome().toLowerCase();
-            if(nomeProd.contains(entrada)){
-                p.exibirInformacoes();
-            }
-        }
+        return produtos.stream()
+                .filter(p -> p.getNome().contains(entrada))
+                .collect(Collectors.toList());
     }
-    
-    
+
 }//end class

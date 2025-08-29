@@ -14,12 +14,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import service.CalcularEstoqueService;
+import service.ProdutoService;
 
 public class LeitorDeEstoque {
 
     public static void main(String[] args) {
-        // ATENÇÃO: Altere este caminho para o local onde você salvou o arquivo CSV!
         String caminhoDoArquivo = "src/data/produtos.csv";
         System.out.println("--- Iniciando Leitura do Inventário ---");
 
@@ -45,40 +44,46 @@ public class LeitorDeEstoque {
                 // Chama o método do objeto para exibir suas informações
                 produto.exibirInformacoes();
             }
-            CalcularEstoqueService calcularEstoqueService = new CalcularEstoqueService();
+            ProdutoService produtoService = new ProdutoService();
             System.out.println(" ");
             System.out.println("---------------------------");
-            double valorTotalInventario = calcularEstoqueService.calculaTotalEstoque(produtos);
+            double valorTotalInventario = produtoService.calculaTotalEstoque(produtos);
             System.out.printf("Valor total do inventario: %.2f R$", valorTotalInventario);
 
             System.out.println(" ");
             System.out.println("---------------------------");
-            double precoMedioProdutos = calcularEstoqueService.calculaPrecoMedio(produtos);
+            double precoMedioProdutos = produtoService.calculaPrecoMedio(produtos);
             System.out.printf("Preço médio de todos os produtos: %.2f R$", precoMedioProdutos);
 
             System.out.println(" ");
             System.out.println("---------------------------");
-            Produto produtoMaisCaro = calcularEstoqueService.calculaMaiorPreco(produtos);
+            Produto produtoMaisCaro = produtoService.calculaMaiorPreco(produtos);
             produtoMaisCaro.exibirInformacoes();
 
             System.out.println(" ");
             System.out.println("---------------------------");
 
-            Produto produtoMaisBarato = calcularEstoqueService.calculaMenorPreco(produtos);
+            Produto produtoMaisBarato = produtoService.calculaMenorPreco(produtos);
             produtoMaisBarato.exibirInformacoes();
-            
+
             System.out.println(" ");
             System.out.println("--- Relatório de Produtos para Reposição ---");
-            calcularEstoqueService.reposicaoProdutos(produtos);
-            
+            List<Produto> reposicao = produtoService.getProdutosParaReposicao(produtos);
+            reposicao.forEach(p
+                    -> System.out.println(p.getNome() + "(Estoque: " + p.getQuantidadeEmEstoque() + " unidades"));
+
             System.out.println(" ");
             System.out.println("--- Relatório de Itens de Luxo ---");
-            calcularEstoqueService.calculaItemLuxo(produtos);
-            
-             System.out.println(" ");
-             String entrada = "Teclado";
+            List<Produto> luxo = produtoService.getProdutosDeLuxo(produtos);
+            luxo.forEach(p
+                    -> System.out.printf("- %s (Preço: R$ %.2f)\n", p.getNome(), p.getPreco())
+            );
+
+            System.out.println(" ");
+            String entrada = "Teclado";
             System.out.println("---Resultado da Busca por 'teclado---'\n");
-            calcularEstoqueService.findByName(produtos, entrada);
+            List<Produto> encontrados = produtoService.findByName(produtos, entrada);
+            encontrados.forEach(Produto::exibirInformacoes);
             
         } catch (IOException e) {
             System.out.println("ERRO: Não foi possível ler o arquivo. Verifique o caminho");
