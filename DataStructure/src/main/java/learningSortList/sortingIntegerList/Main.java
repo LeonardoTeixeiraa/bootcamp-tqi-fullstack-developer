@@ -1,4 +1,4 @@
-package learningSortList;
+package learningSortList.sortingIntegerList;
 
 /*Crie uma lista de números inteiros e utilize o método
 Collections.sort para ordená-la em ordem crescente e decrescente.
