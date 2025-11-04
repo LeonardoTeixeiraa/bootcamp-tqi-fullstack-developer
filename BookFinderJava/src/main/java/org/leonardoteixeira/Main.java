@@ -27,5 +27,6 @@ public class Main {
                     .send(request, HttpResponse.BodyHandlers.ofString());
 
             System.out.println(response.body());
+            sc.close();
         }
 }
