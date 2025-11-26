@@ -34,9 +34,7 @@ Este repositório é dedicado a documentar meu aprendizado na Linguagem Java. El
 - Git & GitHub
 
 ---
-
-## 📎 Links úteis
-- [Bootcamp na DIO.me](https://www.dio.me/)
-- [TQI - Site oficial](https://www.tqi.com.br/)
+Desenvolvido por:
+[LeonardoTeixeiraa](https://github.com/LeonardoTeixeiraa)
 
 
