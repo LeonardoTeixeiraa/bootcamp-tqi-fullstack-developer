@@ -1,29 +1,29 @@
 
-# <img align="center" width="40px" src="https://hermes.digitalinnovation.one/assets/diome/logo-minimized.png"> TQI Fullstack Developer (Java)
+# Learning Java: Conceitos Fundamentais e Avançados
 
-Este repositório contém os códigos desenvolvidos durante o **Bootcamp TQI Fullstack Developer**, promovido pela [DIO.me](https://www.dio.me/) em parceria com a **TQI**.
-
-O bootcamp tem como objetivo capacitar desenvolvedores para atuar em projetos fullstack utilizando as tecnologias mais requisitadas pelo mercado, com foco em **Java**, **Spring Boot** e **metodologias modernas de engenharia de software**.
-
-> Este repositório é dedicado exclusivamente ao **Módulo VI - Java**, onde estão os códigos práticos e projetos desenvolvidos ao longo das aulas.
+Este repositório é dedicado a documentar meu aprendizado na Linguagem Java. Ele contém uma coleção de exercícios focando desde os fundamentos até tópicos mais avançados.
 
 ---
-
-## 📘 Conteúdos do Módulo VI - Java
-
-- Variáveis, tipos de dados e operadores matemáticos em Java
-- Entendendo métodos Java
-- Lógica condicional e controle de fluxos
-- Estruturas de repetição e arrays
-- Trabalhando com collections
-- Estrutura de dados em Java
-- Debugging no IntelliJ IDEA
-- Tratamento de exceções
-- Programação orientada a objetos (POO)
-- Acesso a banco de dados com JDBC e JPA
-- Persistência com JPA e Hibernate
-- Testes unitários com JUnit
-
+## Conteúdos:
+- java-fundamentals: contém a base de algoritmos como:
+  - estruturas de condições e repetições;
+  - Tipos de variáveis;
+  - Funções lambdas;
+  - Métodos;
+  - Controle de fluxo;
+  - Programação Orientada à Objetos(POO) e modelo MVC(Model, View, Controller);
+- LearningTests: Aprendendo a testar aplicações com o Junit 5;
+- DataStructure:
+  - Collections;
+  - Uso de métodos para ordenação de Coleções;
+- LeitordeInventário: exercício que lê uma base de dados .csv e utiliza boas práticas de código para manipular os dados.
+- learning-enums: Aprendendo a utilizar enums.
+  ### Exercícios de Consumo de APIs
+- conversor-de-moedas: Exercício que utiliza uma API de cotação de moedas para fazer a conversão de moedas estrangeiras.
+- BookFinderjava: Exercício simples de consumo de API de livros.
+- CoinGeckoClient: Desafio proposto no Curso "Formação Back-end Java" da Alura+One. Consome uma API de cotação de criptomoedas e exibe os valores
+- java-screenmatch: Exercício desenvolvido durante o curso da Alura. Consome uma API de filmes, persiste os dados com JSON e exibe os dados de um filme.
+- consumindo-api-viacep: Consome a API ViaCep para buscar um endereço pelo CEP e persiste os dados em arquivo JSON.
 ---
 
 ## 🛠️ Tecnologias Utilizadas
@@ -31,7 +31,6 @@ O bootcamp tem como objetivo capacitar desenvolvedores para atuar em projetos fu
 - IntelliJ IDEA
 - Maven
 - JUnit
-- JDBC / JPA / Hibernate
 - Git & GitHub
 
 ---
