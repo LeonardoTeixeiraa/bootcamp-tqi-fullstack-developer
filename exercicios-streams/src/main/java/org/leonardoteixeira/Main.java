@@ -32,5 +32,19 @@ public class Main {
 
             System.out.println("Soma dos quadrados: " + sumOfSquares);
 
+        //Ex5
+        //separar pares de impares
+        Map<Boolean, List<Integer>> resultado = listaNumeros.stream()
+                .collect(Collectors.partitioningBy(n -> n % 2 == 0));
+
+        List<Integer> numerosPares = resultado.get(true);
+        List<Integer> numerosImpares = resultado.get(false);
+
+        System.out.println("\nLista Completa: " + listaNumeros);
+        System.out.println("Numeros Pares: " + numerosPares);
+        System.out.println("Numeros Impares: " + numerosImpares);
+
+
+
     }
 }
